@@ -1,0 +1,105 @@
+body {
+
+	background-color: lightblue;
+}
+
+
+
+h1 {
+	text-align: center;
+	color: salmon;
+	font-family: serif;
+}
+
+#board {
+	height: 400px;
+	width: 405px;
+	margin: auto;
+	background-color: floralwhite;
+	border-radius: 10px;
+	padding: 15px;
+}
+
+#number-pad {
+	width: 75%;
+	height: 350px;
+	background-color: salmon;
+	float: left;
+	text-align: center;
+	border-radius: 5px;
+}
+
+#screen {
+	height: 74px;
+	width: 100%;
+	background-color: salmon;
+	text-align: right;
+	border: 2px solid floralwhite;
+	border-radius: 5px;
+
+}
+
+#action {
+	width: 25%;
+	height: 350px;
+	background-color: salmon;
+	float: right;
+	text-align: center;
+
+}
+
+.btn-num {
+	height: 75px;
+	width: 75px;
+	border-radius: 50%;
+	margin: 5px;
+	padding: 0;
+	color: salmon;
+	font-size: 20px;
+	background-color: floralwhite;
+	font-weight: bold;
+	box-shadow: 2px 2px 2px floralwhite;
+}
+
+/*.btn-num:first-child{
+	margin-top: 30px;
+}*/
+
+.btn-action {
+	height: 50px;
+	width:60px;
+	margin-bottom: 12px;
+	color: salmon;
+	background-color: floralwhite;
+	font-weight: bold;
+	font-size: 18px;
+	box-shadow: 2px 2px 2px floralwhite;
+/*	border: .5px solid flor;*/
+}
+
+.btn-action:first-child {
+	margin-top: 5px;
+}
+
+#results {
+	float:right;
+	margin: 20px 10px 0 0;
+	font-size: 30px;
+	color: floralwhite;
+	font-weight: bold;
+
+}
+
+.btn-num:hover, .btn-action:hover {
+
+	background-color: lightblue;
+}
+
+
+
+
+
+
+
+
+

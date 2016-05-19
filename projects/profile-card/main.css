@@ -1,0 +1,39 @@
+body {
+
+	margin: 0;
+	padding: 0;
+	/*background-color: #FFEBCD;*/
+
+}
+
+.container {
+	/*padding: 5px;*/
+	border: 2px solid black;
+	font-size: 16px;
+	font-family: Helvetica;
+	border-color: salmon;
+	color: salmon;
+	background-color: #FFF5E6;
+	/*width: auto;*/
+	width: 35%;
+	/*min-width: 300px;*/
+	/*max-width: 400px;*/
+	max-height: auto;
+	float:right;
+	margin: 5px;
+
+}
+
+.common {
+	padding: 10px;
+}
+
+p img {
+	height:75%;
+	width: 75%;
+	border: 2px solid salmon;
+
+}
+
+
+
