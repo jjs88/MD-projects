@@ -1,0 +1,74 @@
+body {
+
+	background-color: #005FDE;
+}
+
+
+.container {
+
+	background-color: #0F98FF;
+	width:30%;
+/*	height:200px;*/
+	margin:0 auto;
+	margin-top: 15%;
+	border: 5px solid white;
+	border-radius: 30px;
+	text-align: center;
+	color: white;
+}
+
+
+input[type="text"] {
+
+	border-radius: 30px;
+	border: 3px solid white;
+	height:50px;
+	width:75%;
+	text-align: center;
+	font-size: 30px;
+	background-color: #005FDE;
+	color: white;
+	font-family: tahoma;
+	/*font-weight: ;*/
+	background: linear-gradient(45deg, #005FDE, #0F98FF);
+}
+
+button {
+
+	border-radius: 30px;
+	width:20%;
+	background-color: white;
+	font-size: 20px;
+	margin:0;
+	padding: 0;
+	background-color: #005FDE;
+	border: 2px solid white;
+	background: linear-gradient(45deg, #005FDE, #0F98FF);
+}
+
+button:hover {
+
+	background-color: white;
+}
+
+
+select {
+	margin-top:10px;
+	border-radius: 30px;
+	background-color: #005FDE;
+	border: 2px solid white;
+	color: white;
+	font-size: 20px;
+	font-family: tahoma;
+	background: linear-gradient(45deg, #005FDE, #0F98FF);
+
+}
+
+input::-webkit-input-placeholder {
+  color: white;
+}
+
+input:-moz-placeholder{
+  color: white;
+}
+
