@@ -1,0 +1,66 @@
+body {
+
+	margin: 0;
+	padding: 0;
+	background-color: #FFF3E1;
+}
+
+.signup-container {
+
+	margin:auto;
+	margin-top: 20px;
+	/*text-align: center;*/
+	border: 10px solid lightblue;
+	width: 50%;
+	min-width: 300px;
+	/*margin: 10px;*/
+	padding: 20px;
+	font-size: 30px;
+	color: salmon;
+	border-radius: 5px;
+	font-family: Helvetica, arial;
+	/*background-color: #FFF3E1;*/
+	background: linear-gradient(45deg, #FFF3E1, salmon);
+}
+
+.schedule-box {
+
+	height: 30px;
+}
+
+.signup-container input[type="text"] {
+
+	font-size: 20px;
+	border: 2px solid salmon;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px salmon;
+	padding:5px;
+	margin:5px;
+}
+
+.signup-container input[type="text"]:hover {
+
+	background-color: lightblue;
+}
+
+.signup-container form button {
+	color: salmon;
+	font-size: 20px;
+	border-radius: 5px;
+	background-color: white;
+	padding: 5px;
+	margin-top: 10px;
+}
+
+.signup-container form button:hover {
+	background-color: lightblue;
+}
+
+
+
+
+
+
+
+
+

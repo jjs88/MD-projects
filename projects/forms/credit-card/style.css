@@ -1,0 +1,60 @@
+body {
+
+	margin: 0;
+	padding: 0;
+	background-color: #FFF3E1;
+}
+
+.schedule-container {
+
+	margin:auto;
+	margin-top: 20px;
+	border: 10px solid lightblue;
+	width: 50%;
+	min-width: 300px;
+	padding: 20px;
+	font-size: 30px;
+	color: #FFF3E1;
+	border-radius: 5px;
+	font-family: Helvetica, arial;
+	background: linear-gradient(45deg, salmon, #FFF3E1);
+}
+
+
+.schedule-container input[type="text"], input[type="date"], input[type="time"],textarea, select {
+
+	font-size: 20px;
+	border: 2px solid salmon;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px salmon;
+	padding:5px;
+	margin:10px;
+}
+
+.schedule-container select {
+	width: 41%;
+}
+
+
+.schedule-container input[type="text"]:hover, input[type="date"]:hover, input[type="time"]:hover,textarea:hover, select:hover {
+
+	background-color:lightblue;
+}
+
+.schedule-container input::-webkit-input-placeholder, option::-webkit-input-placeholder  {
+  color: salmon;
+}
+
+.schedule-container input:-moz-placeholder, textarea::-webkit-input-placeholder {
+  color: salmon;
+}
+
+.schedule-container select {
+
+	color: salmon;
+}
+
+
+
+
+
