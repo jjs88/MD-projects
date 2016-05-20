@@ -45,6 +45,33 @@ body {
 	background-color: lightblue;
 }
 
+.btn {
+
+	border: 10px solid lightblue;
+	width: 15%;
+	min-width: 300px;
+	height: 50px;
+	margin: 10px;
+	padding: 20px;
+	font-size: 30px;
+	color: salmon;
+	border-radius: 5px;
+	font-family: Helvetica, arial;
+	background: linear-gradient(45deg, #FFF3E1, salmon);
+	display: inline-block;
+	vertical-align: top;
+
+}
+
+.btn input[type="button"] {
+
+	color:white;
+	font-size: 20px;
+	/*border:2px solid salmon;*/
+	background-color: salmon;
+	outline: 1px inset salmon;
+}
+
 
 
 
