@@ -8,7 +8,6 @@ body {
 
 	background-color: #0F98FF;
 	width:30%;
-/*	height:200px;*/
 	margin:0 auto;
 	margin-top: 15%;
 	border: 5px solid white;
@@ -29,7 +28,6 @@ input[type="text"] {
 	background-color: #005FDE;
 	color: white;
 	font-family: tahoma;
-	/*font-weight: ;*/
 	background: linear-gradient(45deg, #005FDE, #0F98FF);
 }
 
@@ -37,19 +35,15 @@ button {
 
 	border-radius: 30px;
 	width:20%;
-	background-color: white;
 	font-size: 20px;
 	margin:0;
 	padding: 0;
 	background-color: #005FDE;
-	border: 2px solid white;
 	background: linear-gradient(45deg, #005FDE, #0F98FF);
+	margin-bottom:5px;
 }
 
-button:hover {
 
-	background-color: white;
-}
 
 
 select {
