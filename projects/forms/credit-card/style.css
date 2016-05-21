@@ -21,7 +21,7 @@ body {
 }
 
 
-.schedule-container input[type="text"], input[type="date"], input[type="time"],textarea, select {
+.schedule-container input[type="text"], input[type="date"], input[type="time"],textarea, select, input[type="button"] {
 
 	font-size: 20px;
 	border: 2px solid salmon;
@@ -36,7 +36,7 @@ body {
 }
 
 
-.schedule-container input[type="text"]:hover, input[type="date"]:hover, input[type="time"]:hover,textarea:hover, select:hover {
+.schedule-container input[type="text"]:hover, input[type="date"]:hover, input[type="time"]:hover,textarea:hover, select:hover, input[type="button"]:hover {
 
 	background-color:lightblue;
 }
@@ -52,6 +52,12 @@ body {
 .schedule-container select {
 
 	color: salmon;
+}
+
+input[type="button"] {
+	background-color: white;
+	color:salmon;
+	outline: 2px solid;
 }
 
 
