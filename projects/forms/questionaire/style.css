@@ -66,6 +66,19 @@ body {
 	border-bottom: 3px solid #FFF3E1;
 }
 
+.question-container input[type="button"] {
+
+	background-color: salmon;
+	outline: 2px solid salmon;
+	border: 2px;
+	color: white;
+	border-radius:5px;
+}
+
+.question-container input[type="button"]:hover {
+	background-color: lightblue;
+}
+
 
 
 
