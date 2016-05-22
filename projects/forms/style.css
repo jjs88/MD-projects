@@ -1,0 +1,32 @@
+body {
+
+	margin:0 auto;
+	background-color: #7fbfbf;
+}
+
+
+.generic {
+
+	background-color: teal;
+	border:1px solid white;
+	width:25%;
+	text-align: center;
+	padding:5px;
+	margin:5px auto;
+	border-radius: 5px;
+	font-size: 20px;
+	color:white;
+
+}
+
+a {
+	text-decoration: none;
+}
+
+a:visited {
+	color: white;
+}
+
+a:hover {
+	background-color: #b2d8d8;
+}
