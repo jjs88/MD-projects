@@ -1,0 +1,33 @@
+body {
+	background: url(me.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+nav {
+	text-align: center;
+}
+
+nav ul li {
+	list-style: none;
+	display: inline-block;
+	padding: 5px;
+	color:black;
+	font-size: 20px;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:visited {
+
+	color:black;
+}
+
+a:hover {
+
+	background-color:#e5e500;
+}
