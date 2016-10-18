@@ -7,7 +7,7 @@
 <body>
 
 	<div class="schedule-container">
-		<form>
+		<form id="schedule-form" autocomplete="off">
 			<label> Date </label><br>
 			<input class="schedule-box" type="date" name="date"> <br>
 
@@ -29,21 +29,19 @@
 			</select> <br>
 
 			<label>Note</label><br>
-			<textarea rows="4" columns="50" placeholder="Appointment notes..."></textarea> <br>
+			<textarea rows="4" columns="50" placeholder="Appointment notes..." name="notes"></textarea> <br>
 
 			<label> Contact Number </label><br>
-			<input type="text" name="number" placeholder="(111)-111-1111"> <br>
+			<input type="text" name="number" placeholder="111-111-1111"> <br>
 
 			<label> Email Address </label><br>
 			<input type="text" name="email" placeholder="jsadlon@gmail.com"> <br>
 
-			<input type="button" value="Submit">
-
-
+			<button type="submit" value="submit"> submit </button>
 		</form>
-
-
 	</div>
 
+	<script type="text/javascript" src="../../validator.js"></script>
+	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>

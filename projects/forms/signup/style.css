@@ -28,7 +28,7 @@ body {
 	height: 30px;
 }
 
-.signup-container input[type="text"] {
+.signup-container input[type="text"], input[type="password"] {
 
 	font-size: 20px;
 	border: 2px solid salmon;
@@ -38,7 +38,8 @@ body {
 	margin:5px;
 }
 
-.signup-container input[type="text"]:hover {
+
+.signup-container input[type="text"]:hover, input[type="password"]:hover {
 
 	background-color: lightblue;
 }
@@ -54,6 +55,15 @@ body {
 
 .signup-container form button:hover {
 	background-color: lightblue;
+}
+
+.invalid {
+
+	background-color: red;
+}
+
+.valid {
+	background-color: green;
 }
 
 

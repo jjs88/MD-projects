@@ -30,7 +30,7 @@ body {
 	height: 30px;
 }
 
-.login-container input[type="text"] {
+.login-container input[type="text"], input[type="password"] {
 
 	font-size: 20px;
 	border: 2px solid salmon;
@@ -40,7 +40,7 @@ body {
 	margin:5px;
 }
 
-.login-container input[type="text"]:hover {
+.login-container input[type="text"]:hover, input[type="password"]:hover {
 
 	background-color: lightblue;
 }
@@ -68,6 +68,15 @@ body {
 	color: salmon;
 	text-decoration: underline;
 	-webkit-text-decoration-color: #FFF3E1;
+}
+
+
+.valid {
+	background-color: green;
+}
+
+.invalid {
+	background-color: red;
 }
 
 

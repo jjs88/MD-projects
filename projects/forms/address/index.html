@@ -10,26 +10,153 @@
 
 		<!-- Billing -->
 		<div class="address-container">
-			<h2> Billing </h2>
-			<form>
+			<!-- <h2> Billing </h2> -->
+			<!-- Billing -->
+			<form id="billing-shipping-form">
+				<label id="billing-label"><h2>Billing</h2></label> <br>
 				First Name<br>
-				<input class="address-box" type="text" name="firstname"> <br>
+				<input class="address-box" type="text" name="billing-firstname"> <br>
 				Last Name <br>
-				<input class="address-box" type="text" name="lastname"> <br>
+				<input class="address-box" type="text" name="billing-lastname"> <br>
 				Address <br>
-				<input class="address-box" type="text" name="address"> <br>
+				<input class="address-box" type="text" name="billing-address"> <br>
 				City <br>
-				<input class="address-box" type="text" name="city"> <br>
+				<input class="address-box" type="text" name="billing-city"> <br>
+				<label>State</label><br>
+				<select class="address-box" name="billing-state">
+					<optgroup>
+						<option value="AK">AK</option>
+					    <option value="AL">AL</option>
+					    <option value="AZ">AZ</option>
+					    <option value="AR">AR</option>
+					    <option value="CA">CA</option>
+					    <option value="CO">CO</option>
+					    <option value="CT">CT</option>
+					    <option value="DE">DE</option>
+					    <option value="FL">FL</option>
+					    <option value="GA">GA</option>
+					    <option value="HI">HI</option>
+					    <option value="ID">ID</option>
+					    <option value="IL">IL</option>
+					    <option value="IN">IN</option>
+					    <option value="IA">IA</option>
+					    <option value="KS">KS</option>
+					    <option value="KY">KY</option>
+					    <option value="LA">LA</option>
+					    <option value="ME">ME</option>
+					    <option value="MD">MD</option>
+					    <option value="MA">MA</option>
+					    <option value="MI">MI</option>
+					    <option value="MN">MN</option>
+					    <option value="MS">MS</option>
+					    <option value="MO">MO</option>
+					    <option value="MT">MT</option>
+					    <option value="NE">NE</option>
+					    <option value="NV">NV</option>
+					    <option value="NH">NH</option>
+					    <option value="NJ">NJ</option>
+					    <option value="NM">NM</option>
+					    <option value="NY">NY</option>
+					    <option value="NC">NC</option>
+					    <option value="ND">ND</option>
+					    <option value="OH">OH</option>
+					    <option value="OK">OK</option>
+					    <option value="OR">OR</option>
+					    <option value="PA">PA</option>
+					    <option value="RI">RI</option>
+					    <option value="SC">SC</option>
+					    <option value="SD">SD</option>
+					    <option value="TN">TN</option>
+					    <option value="TX">TX</option>
+					    <option value="UT">UT</option>
+					    <option value="VT">VT</option>
+					    <option value="VA">VA</option>
+					    <option value="WA">WA</option>
+					    <option value="WV">WV</option>
+					    <option value="WI">WI</option>
+					    <option value="WY">WY</option>
+					</optgroup> <br>
+				</select> <br>
 				Country <br>
-				<input class="address-box" type="text" name="country"> <br>
+				<input class="address-box" type="text" name="billing-country"> <br>
+				<!-- Shipping -->
+
+				<label id="shipping-label"><h2>Shipping</h2></label><br>
+				First Name<br>
+				<input class="address-box" type="text" name="shipping-firstname"> <br>
+				Last Name <br>
+				<input class="address-box" type="text" name="shipping-lastname"> <br>
+				Address <br>
+				<input class="address-box" type="text" name="shipping-address"> <br>
+				City <br>
+				<input class="address-box" type="text" name="shipping-city"> <br>
+				<label>State</label><br>
+				<select class="address-box" name="shipping-state">
+					<optgroup>
+										<option value="AK">AK</option>
+					    <option value="AL">AL</option>
+					    <option value="AZ">AZ</option>
+					    <option value="AR">AR</option>
+					    <option value="CA">CA</option>
+					    <option value="CO">CO</option>
+					    <option value="CT">CT</option>
+					    <option value="DE">DE</option>
+					    <option value="FL">FL</option>
+					    <option value="GA">GA</option>
+					    <option value="HI">HI</option>
+					    <option value="ID">ID</option>
+					    <option value="IL">IL</option>
+					    <option value="IN">IN</option>
+					    <option value="IA">IA</option>
+					    <option value="KS">KS</option>
+					    <option value="KY">KY</option>
+					    <option value="LA">LA</option>
+					    <option value="ME">ME</option>
+					    <option value="MD">MD</option>
+					    <option value="MA">MA</option>
+					    <option value="MI">MI</option>
+					    <option value="MN">MN</option>
+					    <option value="MS">MS</option>
+					    <option value="MO">MO</option>
+					    <option value="MT">MT</option>
+					    <option value="NE">NE</option>
+					    <option value="NV">NV</option>
+					    <option value="NH">NH</option>
+					    <option value="NJ">NJ</option>
+					    <option value="NM">NM</option>
+					    <option value="NY">NY</option>
+					    <option value="NC">NC</option>
+					    <option value="ND">ND</option>
+					    <option value="OH">OH</option>
+					    <option value="OK">OK</option>
+					    <option value="OR">OR</option>
+					    <option value="PA">PA</option>
+					    <option value="RI">RI</option>
+					    <option value="SC">SC</option>
+					    <option value="SD">SD</option>
+					    <option value="TN">TN</option>
+					    <option value="TX">TX</option>
+					    <option value="UT">UT</option>
+					    <option value="VT">VT</option>
+					    <option value="VA">VA</option>
+					    <option value="WA">WA</option>
+					    <option value="WV">WV</option>
+					    <option value="WI">WI</option>
+					    <option value="WY">WY</option>
+					</optgroup> <br>
+				</select> <br>
+				Country <br>
+				<input class="address-box" type="text" name="shipping-country"> <br>	
+<!-- 				<button id="shipping-btn" type="submit" value="submit"> submit </button>	 -->
 				<input type="checkbox" name="same"> Shipping Same <br>
+				<button type="submit" value="submit"> submit </button>
 			</form>
 		</div>
 
 		<!-- Shipping -->
-		<div class="address-container">
+		<!-- <div class="address-container">
 			<h2> Shipping </h2>
-			<form>
+			<form id="shipping-form">
 				First Name<br>
 				<input class="address-box" type="text" name="firstname"> <br>
 				Last Name <br>
@@ -38,17 +165,37 @@
 				<input class="address-box" type="text" name="address"> <br>
 				City <br>
 				<input class="address-box" type="text" name="city"> <br>
+				<label>State</label><br>
+				<select class="address-box">
+					<optgroup name="month">
+						<option value="01">January</option>
+					    <option value="02">February</option>
+					    <option value="03">March</option>
+					    <option value="04">April</option>
+					    <option value="05">May</option>
+					    <option value="06">June</option>
+					    <option value="07">July</option>
+					    <option value="08">August</option>
+					    <option value="09">September</option>
+					    <option value="10">October</option>
+					    <option value="11">November</option>
+					    <option value="12">December</option>
+					</optgroup> <br>
+				</select> <br>
 				Country <br>
-				<input class="address-box" type="text" name="country"> <br>
-				
+				<input class="address-box" type="text" name="country"> <br>	
+				<button id="shipping-btn" type="submit" value="submit"> submit </button>		
 			</form>
 		</div>
-
-		<div class="btn">
-			<input type="button" value="Submit">
+ -->
+	<!-- 	<div class="btn">
+			<input id="btn-submit" type="button" value="Submit">
 		</div>
 
-	</div>
+	</div> -->
 
+
+	<script type="text/javascript" src="../../validator.js"></script>
+	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>

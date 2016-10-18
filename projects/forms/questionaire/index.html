@@ -10,26 +10,28 @@
 	
 		<p> High-Rated Food Spots in Pitt </p>
 
-		<form>
+		<form id="question-form">
 			<label>Urban Tap</label> <br>
-  			<input type="radio" name="urbantap"><br>
+  			<input type="radio" name="urbantap" value="urbantap"><br>
 
   			<label>Pipers Pub</label><br>
-  			<input type="radio" name="pipers"><br>
+  			<input type="radio" name="pipers" value="pipers"><br>
 
   			<label>Carmella's</label> <br>
-  			<input type="radio" name="carmellas"><br>
+  			<input type="radio" name="carmellas" value="carmellas"><br>
 
   			<label>Las Palmas</label><br>
-  			<input type="radio" name="palmas"><br>
+  			<input type="radio" name="palmas" value="las palmas"><br>
 
   			<label>Other</label><br>
-  			<input type="radio" name="other"><br>
+  			<input type="radio" name="otherRadio"><br>
 
-			<input class="question-box" type="text" name="other" placeholder="enter another option..."> <br>
-			<input type="button" value="Submit"> 
+			<input class="question-box" type="text" name="otherBox" placeholder="enter another option..."> <br>
+			<button type="submit" value=""> submit </button>
 		</form>
 	</div>
 
+	<script type="text/javascript" src="../../validator.js"></script>
+	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>

@@ -50,12 +50,10 @@ body {
 }
 
 
-.schedule-container input[type="button"] {
+button {
 	color:salmon;
 	margin-left: 15px;
 	padding: 5px;
-	/*border:1px solid black;*/
-	/*outline: 3px inset salmon;*/
 	border:0;
 	background:transparent;
 	color:white;
@@ -66,9 +64,20 @@ body {
 
 }
 
-.schedule-container input[type="button"]:hover {
+.schedule-container button:hover {
 
 	background-color: lightblue;
+}
+
+
+.valid {
+
+	background-color: green;
+}
+
+.invalid {
+
+	background-color: red;
 }
 
 

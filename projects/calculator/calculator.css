@@ -12,7 +12,7 @@ h1 {
 }
 
 #board {
-	height: 400px;
+	height: 450px;
 	width: 405px;
 	margin: auto;
 	background-color: floralwhite;
@@ -22,7 +22,7 @@ h1 {
 
 #number-pad {
 	width: 75%;
-	height: 350px;
+	/*height: 350px;*/
 	background-color: salmon;
 	float: left;
 	text-align: center;

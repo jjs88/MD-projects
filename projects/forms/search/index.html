@@ -8,28 +8,25 @@
 <body>
 
 <div class="container">
-	<p> 
 
-	<input class="search-box" type="text" name="search" placeholder="start your search..."> <br>
-			<select>
-				<optgroup>
-					<option>Lion</option>
-					<option>Tiger</option>
-					<option>Cheetah</option>
-					<option>Bear</option>
-					<option>Wolf</option>
-					<option>Heyena</option>
-				</optgroup> <br>
-			</select> <br>
-
-		</p>
-
-
-	<div class="align">
-	<button> <img src="finder.png"></button>
-	</div>
+	<form id="search-form">
+		<input class="search-box" type="text" name="search" placeholder="start your search..."> <br>
+		<select name="search-selection">
+			<optgroup>
+				<option val="Lion">Lion</option>
+				<option val="Tiger">Tiger</option>
+				<option val="Cheetah">Cheetah</option>
+				<option val="Bear">Bear</option>
+				<option val="Wolf">Wolf</option>
+				<option val="Heyena">Heyena</option>
+			</optgroup> <br>
+		</select> <br>
+		<button> <img src="finder.png"></button>
+	</form>
 </div>
+	
 
-
+	<script type="text/javascript" src="../../validator.js"></script>
+	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>

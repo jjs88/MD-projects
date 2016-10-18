@@ -14,7 +14,7 @@ body {
 	border: 10px solid lightblue;
 	width: 34%;
 	min-width: 300px;
-	height: 550px;
+	/*height: 550px;*/
 	margin: 10px;
 	padding: 20px;
 	font-size: 30px;
@@ -31,7 +31,7 @@ body {
 	height: 30px;
 }
 
-.address-container input[type="text"] {
+.address-container input[type="text"], select {
 
 	font-size: 20px;
 	border: 2px solid salmon;
@@ -40,18 +40,19 @@ body {
 	margin:5px;
 }
 
-.address-container input[type="text"]:hover {
+.address-container input[type="text"]:hover, select:hover {
 
 	background-color: lightblue;
 }
 
-.btn {
+form button {
 
-	border: 10px solid lightblue;
+	/*border: 10px solid lightblue;
 	width: 15%;
 	min-width: 300px;
 	height: 50px;
 	margin: 10px;
+	margin-top:20px;
 	padding: 20px;
 	font-size: 30px;
 	color: salmon;
@@ -59,18 +60,48 @@ body {
 	font-family: Helvetica, arial;
 	background: linear-gradient(45deg, #FFF3E1, salmon);
 	display: inline-block;
-	vertical-align: top;
+	vertical-align: top;*/
 
-}
-
-.btn input[type="button"] {
-
-	color:white;
+	color: salmon;
 	font-size: 20px;
-	/*border:2px solid salmon;*/
-	background-color: salmon;
-	outline: 1px inset salmon;
+	border-radius: 5px;
+	background-color: white;
+	padding: 5px;
+	margin-top: 20px;
+
 }
+
+#shipping-btn {
+
+	margin-top: 55px;
+}
+
+form button:hover {
+	background-color: lightblue;
+}
+
+
+.invalid {
+
+	background-color: red;
+}
+
+.valid {
+	background-color: green;
+}
+
+
+#billing-label, #shipping-label {
+
+	/*font-size: 50px;*/
+	text-decoration: underline;
+	/*border: 1px solid black;
+	margin: 10px;*/
+}
+
+
+
+
 
 
 

@@ -6,7 +6,7 @@ body {
 
 .container {
 
-	background-color: #0F98FF;
+	/*background-color: #0F98FF;*/
 	width:30%;
 	margin:0 auto;
 	margin-top: 15%;
@@ -15,6 +15,12 @@ body {
 	text-align: center;
 	color: white;
 }
+
+form {
+
+	margin: 10px;
+}
+
 
 
 input[type="text"] {
@@ -25,7 +31,7 @@ input[type="text"] {
 	width:75%;
 	text-align: center;
 	font-size: 30px;
-	background-color: #005FDE;
+	/*background-color: #005FDE;*/
 	color: white;
 	font-family: tahoma;
 	background: linear-gradient(45deg, #005FDE, #0F98FF);
@@ -36,7 +42,7 @@ button {
 	border-radius: 30px;
 	width:20%;
 	font-size: 20px;
-	margin:0;
+	margin:5px;
 	padding: 0;
 	background-color: #005FDE;
 	background: linear-gradient(45deg, #005FDE, #0F98FF);
@@ -64,5 +70,15 @@ input::-webkit-input-placeholder {
 
 input:-moz-placeholder{
   color: white;
+}
+
+.valid {
+
+	background-color: green;
+}
+
+.invalid {
+
+	background-color: red;
 }
 

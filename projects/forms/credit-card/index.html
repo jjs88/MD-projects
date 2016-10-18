@@ -7,19 +7,19 @@
 <body>
 
 	<div class="schedule-container">
-		<form>
+		<form id="credit-card-form">
 			<label> CardHolder Name </label><br>
 			<input class="schedule-box" type="text" name="name" placeholder="jon snow"> <br>
 
 			<label> Credit Card Number </label><br>
-			<input class="schedule-box" type="text" name="ccnumber" placeholder="xxxx-xxxx-xxxx-xxxx" maxlength="19"> <br>
+			<input class="schedule-box" type="text" name="cc-number" placeholder="xxxx-xxxx-xxxx-xxxx" maxlength="19"> <br>
 
 			<label> CSV Number </label><br>
-			<input class="schedule-box" type="text" name="ccnumber" placeholder="123" maxlength="3"> <br>
+			<input class="schedule-box" type="text" name="csv-number" placeholder="123" maxlength="3"> <br>
 
 			<label>Month</label><br>
-			<select>
-				<optgroup name="month">
+			<select name="month">
+				<optgroup>
 					<option value="01">January</option>
 				    <option value="02">February</option>
 				    <option value="03">March</option>
@@ -36,8 +36,8 @@
 			</select> <br>
 
 			<label>Year</label><br>
-			<select>
-				<optgroup name="year">
+			<select name="year">
+				<optgroup>
 					<option>2016</option>
 				    <option>2015</option>
 				    <option>2014</option>
@@ -56,9 +56,13 @@
 				    <option>2001</option>
 				</optgroup> <br>
 			</select> <br>
+			<!-- <input type="button" value="submit">  -->
+			<button type="submit" value="submit"> submit </button>
 		</form>
-		<input type="button" value="submit"> 
 	</div>
 
+
+	<script type="text/javascript" src="../../validator.js"></script>
+	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
