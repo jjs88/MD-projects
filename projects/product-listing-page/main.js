@@ -1,344 +1,343 @@
-(function (window) {
+(function (global) {
 
-	var cartGroup = document.getElementsByClassName('cart-group');
-	var cart = document.getElementById('cart');
-	var yourCart = document.getElementById('your-cart');
-	var total = document.getElementById('total');
-	var addButton = document.getElementsByClassName('cart-btn');
-	var remove = document.getElementsByClassName('remove');
-	var add = document.getElementsByClassName('add');
-	var cartCount = document.getElementById('cart-count');
-	var total = document.getElementById('total');
-	var hide = document.getElementById('hide');
-	var promoInfo = document.getElementById('promo-info');
-	var promoForm = document.getElementById('promo-form');
-	var chosenPromo = promoForm.elements['promo'];
-	var showCart = document.getElementById('show-cart');
-	var keepShopping = document.getElementById('keep-shopping')
 
-	//object for storage of products
-	var products = {};
+	// products functionality
+	var products = {
 
-	//promo object
-	var promo = {
-		all: {"message" : "Type ALL for 5% off your whole purchase", "code": .05, "isUsed": false},
-		one: {"message": "Type ONE for 10% off a single item", "code":.10, "isUsed": false},
-	};
+		init: function() {
 
+			this.cacheDOM();
+			this.events();
+		},
 
-	//hide cart initially
-	hide.style.visibility = "hidden";
-	showCart.style.visibility = "hidden";
+		cacheDOM: function() {
 
+			this.productsContainer = document.getElementById('products-container');			
+		},
 
-	/*********************************************************************
-	//click event for "+" button for each product
-	/*********************************************************************/
-	for(var i=0; i < cartGroup.length; i++) {
+		events: function() {
 
-		cartGroup[i].addEventListener('click', function(event) {
 
-			event.preventDefault();
+			//click event on the product container - use bubble down to detect events on buttons
+			this.productsContainer.addEventListener('click', function(e) {
 
-			//logic for "+" button
-			if(event.target.innerHTML == "+") {
+				e.preventDefault();
 
-				//grab the p element value
-				var element = Number(this.children[1].innerHTML)
-				element+=1;
-				this.children[1].innerHTML = element;
-			};
-		});
-	};
-
-	/*********************************************************************
-	//click event for "Add" button for each product
-	**********************************************************************/
-	for(var i=0; i < addButton.length; i++) {
-
-		addButton[i].addEventListener('click', function(event) {
-
-			event.preventDefault();
-
-			//set all the product variables
-			var title = this.parentNode.parentNode.children[1].children[0].innerHTML.trim();
-			var price = this.parentNode.parentNode.children[1].children[2].innerHTML.trim();
-				price = price.substr(price.indexOf('$')+1, price.length);
-			var quantity = this.parentNode.parentNode.children[1].children[3].children[1].innerHTML.trim();
-			var image = this.parentNode.children[0].children[0].getAttribute('src');
-
-			//only add product if it's not in the products object and a quantity is set
-			if(!products[title] && quantity != 0) {
-
-				//add product to the cart storage object
-				products[title] = {
-					"title": title, 
-					"price":price, 
-					"quantity":quantity,
-					"image":image,
-					"domQuantity" : this.parentNode.parentNode.children[1].children[3].children[1],
-					"domPlusSign" : this.parentNode.parentNode.children[1].children[3].children[0]
-				};
-
-
-				//add product to the cart 
-				var html = '<div class="cart-section item">'
-					html += '<section class="product">'
-					html +=	'<section class="standard">'
-					html += '<p> <img src="http://placehold.it/350x350"> </p>'
-					html +=	'</section>'
-
-
-					html+=	'<section class="standard" id="' + title + '">'
-					html+=	'<p>' + title +'</p>'
-					html+=	'<p>' + price + '</p>'
-					html+=	'<p>Quantity:' + quantity +'</p>'
-					html+=	'<button class="remove"> Remove </button>'
-					html+=	'<button class="add"> add </button>'
-					html+=	'</section>'
-					html+= '</section>'
-					html+= '</div>'
-
-				cart.innerHTML += html;
-
-				//add product to the cart array
-				//cartItems.push(title);
-
-				//update cart quantity
-				var count = document.getElementsByClassName('item').length;
-			 	cartCount.innerHTML = count;
-
-				//update total price
-				var currentPrice = Number(total.innerHTML);
-				currentPrice += (Number(products[title].price) * products[title].quantity);
-				total.innerHTML = currentPrice.toFixed(2);
-				//console.log(currentPrice);
-
-				//reset product quantity count to 1 and hide plus sign from item
-				products[title].domQuantity.innerHTML = 1;
-				products[title].domPlusSign.style.visibility = "hidden";
-
-				//unhide cart
-				hide.style.visibility = "visible";
-
-				//add promo info
-				promoInfo.innerHTML = promo.all.message + '<br>';
-				promoInfo.innerHTML += promo.one.message + '<br>';
-
-
-			};
-
-
-			/*********************************************************************
-			//click event for "Remove" button on cart item
-			**********************************************************************/
-			for(var i=0; i < remove.length; i++) {
-
-				remove[i].addEventListener('click', function(event) {
-
-					var parent = this.parentNode.parentNode.parentNode.parentNode;
-					var child = this.parentNode.parentNode.parentNode;
-
-					//get title of clicked cart item
-					var title = this.parentNode.children[0].innerHTML.trim();
-					//get quantity of clicked cart item
-					var quantity = this.parentNode.children[2];
-
-					//get current total price and set new price 
-					var currentPrice = Number(total.innerHTML);
-					currentPrice = currentPrice - Number(products[title].price);
-					total.innerHTML = currentPrice.toFixed(2);
-
-
-					//set quantity on cart item to be one less. if equal to zero, remove item from cart
-					//and update total 
-					if(products[title].quantity-1 == 0) {
-
-						//unhide plusSign for product
-			 			products[title].domPlusSign.style.visibility = "visible";
-
-						delete products[title];
-						//cartItems.splice(cartItems.indexOf(title), 1);
-						parent.removeChild(child);
-
-						//update cart quantity
-						var count = document.getElementsByClassName('item').length;
-			 			cartCount.innerHTML = count;
-
-
-			 			//hide cart if no items in it
-			 			if(count == 0) {
-			 				hide.style.visibility = "hidden";
-			 			}
-
-					} else {
-
-						//set 
-						products[title].quantity-=1;
-						quantity.innerHTML = 'Quantity:' + products[title].quantity;
-					}
-				});
-			};
-
-			/*********************************************************************
-			//click event for "Add" button on cart item
-			**********************************************************************/	
-			for(var i=0; i < add.length; i++) {
-
-				add[i].addEventListener('click', function(event) {
-
-					var parent = this.parentNode.parentNode.parentNode.parentNode;
-					var child = this.parentNode.parentNode.parentNode;
-
-					//get title of clicked cart item
-					var title = this.parentNode.children[0].innerHTML.trim();
-					//get quantity of clicked cart item
-					var quantity = this.parentNode.children[2];
-
-					//get current total price and set new price 
-					var currentPrice = Number(total.innerHTML);
-					currentPrice = currentPrice + Number(products[title].price);
-					total.innerHTML = currentPrice.toFixed(2);
-
-					//add one to the item quantity
-					products[title].quantity = Number(products[title].quantity) + 1;
-					quantity.innerHTML = 'Quantity:' + products[title].quantity;
-				});
-			};
-		});
-	};
-
-
-
-	/*********************************************************************
-	//submit event for "Apply" promo button on cart item
-	**********************************************************************/	
-	promoForm.addEventListener('submit', function(event) {
-
-		event.preventDefault();
-
-		var promoVal = chosenPromo.value.toLowerCase().trim();
-
-		if(promoVal == 'all') {
-
-			//set variables to apply discount
-			var currentTotal = Number(total.innerHTML);
-			var discountCode = Number(promo[promoVal].code);
-			var discount = currentTotal * discountCode;
-
-			console.log(discount);
-			console.log(currentTotal);
-
-			//apply discount
-			currentTotal = Number(currentTotal) - Number(discount);
-			total.innerHTML = currentTotal.toFixed(2);
-
-		};
-
-		if(promoVal == 'one') {
-
-			var maxPrice = 0;
-			var title;
-			var totalForHighest = 0;
-			var discountCode = Number(promo[promoVal].code);
-			var discount = 0;
-			discountPrice = 0;
-			// console.log("works");
-			// console.log(products);
-			//console.log(products.length)
-
-			//cycle through cart items and get title and price of highest item
-			for(var key in products) {
-
-				if(products[key].price > maxPrice) {
-
-					maxPrice = products[key].price;
-					title = key;
-				}
-			}
-			
-			//get price of product item that is highest price
-			if(products[title].quantity > 1) {
-
-				//loop through and add the price for the quantity amount
-				for(var i=0; i < products[title].quantity; i++) {
-
-					//set the first item to be discount
-					if(i == 0) {
-
-						discount = discountCode * products[title].price;
-						discountPrice = (products[title].price - discount).toFixed(2);
-						//console.log(discountPrice);
-
-					} else {
-
-						//console.log(products[title].price)
-						totalForHighest = Number(totalForHighest) + Number(products[title].price);
-						//console.log(Number(totalForHighest))
-						// console.log(totalForHighest)
-					}
+				//target event for 'add' button
+				if(e.target.getAttribute('class') == 'add') {
+					products.addToCart(e.target);
 				}
 
-				//add together
-				//console.log("works")
-				totalForHighest = Number(totalForHighest) + Number(discountPrice);
-				//console.log(totalForHighest)
-			} else {
 
-				//console.log("works");
-				discount = discountCode * products[title].price;
-				discountPrice = (products[title].price - discount).toFixed(2);
-				totalForHighest = discountPrice;
-			}
-
-
-
-			var totalForOtherProducts = 0;
-			//add the rest of the products prices
-			for(var key in products) {
-
-				//skip highest priced product and get price for others
-				if(key !== title) {
-
-					//loop through for number of quantities of product and add up
-					for(var i=0; i < products[key].quantity; i++) { 
-
-						//console.log(products[key]);
-						totalForOtherProducts = Number(totalForOtherProducts) + Number(products[key].price);
-					}
+				//target event for 'plus' button. Add 1 for each click.
+				if(e.target.getAttribute('class') == 'plus') {
+					products.addQuantity(e.target);
 				}
+
+			});
+		
+		//end of events 
+		},
+
+		addToCart: function(target) {
+
+			//gather values for the product
+			var title = target.parentNode.parentNode.children[0].innerHTML;
+			var price = target.parentNode.parentNode.children[2].innerHTML;
+				price = Number(price.substr(price.indexOf('$')+1, price.length));
+			var quantity = Number(target.parentNode.parentNode.children[3].children[2].innerHTML);
+			var image = target.parentNode.parentNode.parentNode.children[0].children[0].getAttribute('src');
+			var buttonControlRef = target.parentNode;
+
+			//make product object
+			var product = {
+				'title': title,
+				'price': price,
+				'quantity': quantity,
+				'image': image,
+				'cartPrice': price * quantity,
+				'buttonControlRef': buttonControlRef
 			}
 
-			//console.log(totalForOtherProducts + ":" + totalForHighest)
-			total.innerHTML = Number(totalForOtherProducts) + Number(totalForHighest);			
+			//add product to the cart
+			var html = '<div class="product">'
+				html += '<div class="img-container">'
+				html +=	'<img src="' + product.image + '">'
+				html += '</div>'
+				html +=	'<div class="product-info">'
+
+
+				html+=	'<h3>' + product.title + '</h3>'
+				html+=	'<p>$' + product.cartPrice.toFixed(2) + '</p>'
+				html+=	'<p>Quantity: ' + product.quantity +'</p>'
+				html+=	'<button class="remove"> Remove </button>'
+				html+=	'<button class="add"> add </button>'
+				html+= '</div>'
+				html+= '</div>'
+
+				cart.cart.innerHTML += html;
+
+				//add product object to the cartItems object
+				cart.cartItems[product.title] = product;
+
+				//add product title to title reference object
+				cart.titleReference.push(product.title);
+
+				//add quantity to cart total
+				cart.cartQuantity();
+
+				//add price to checkout total
+				cart.checkoutTotalPrice();
+
+				//hide buttons on product since its in the cart now
+				target.parentNode.className += ' hide';
+
+				//unhide cart and checkout since there is a product in the cart
+				cart.cart.className = '';
+				cart.checkOutContainer.className = '';
+
+				//reset promo price if boolean is true
+				if(promotion.allApplied == true) {
+					promotion.discountAll();
+				}
+
+
+		},
+
+		addQuantity: function(target) {
+
+			var currentQty = Number(target.nextSibling.nextSibling.innerHTML);
+			currentQty += Number(1);
+
+			//add quantity +1
+			target.nextSibling.nextSibling.innerHTML = currentQty;
 		}
-	});
+	}
 
 
-	/*********************************************************************
-	// Click event for Hide cart
-	**********************************************************************/	
-	keepShopping.addEventListener('click', function(event) {
+	// cart functionality
+	var cart = {
 
-		//hide cart
-		hide.style.visibility = "hidden";
-		showCart.style.visibility = "visible";
-		window.scrollTo(0,0);
+		init:function() {
+			this.cacheDOM();
+			this.events();
+		},
 
-	});
+		cacheDOM: function() {
 
-	/*********************************************************************
-	// Click event for Show cart
-	**********************************************************************/	
+			this.cart = document.getElementById('cart');
+			this.cartNumber = document.getElementById('cart-number');
+			this.checkoutPrice = document.getElementById('checkout-price');
+			this.checkOut = document.getElementById('checkout');
+			this.checkOutContainer = document.getElementById('checkout-container');
+			this.cartItems = [];
+			this.titleReference = [];
+		},
 
-	showCart.addEventListener('click', function(event) {
+		events: function() {
 
-		//hide cart
-		hide.style.visibility = "visible";
-		showCart.style.visibility = "hidden";
-		window.scrollTo(0,document.body.scrollHeight)
+			this.cart.addEventListener('click', function(e) {
 
-	});
+				e.preventDefault();
+
+				//target event for 'remove' button
+				if(e.target.getAttribute('class') == 'remove') {
+					cart.removeItem(e.target);
+				}
+
+				//target event for 'add' button
+				if(e.target.getAttribute('class') == 'add') {
+					cart.addItem(e.target);
+				}
+			});
+
+		//end of events 
+		},
+
+		removeItem: function(target) {
+
+			//get title
+			var title = target.parentNode.children[0].innerHTML;
+
+			//get cart object
+			var item = cart.cartItems[title];
+
+			//decrease the quantity on the cart item object
+			item.quantity -=1;
+
+			//update cart item quantity html value
+			target.previousSibling.innerHTML = 'Quantity: ' +item.quantity;
+
+			//update cart quantity html value
+			this.cartQuantity();
+
+			//update price on cart item object
+			item.cartPrice = (item.quantity * item.price).toFixed(2);
+
+			//update price on checkout html
+			this.checkoutTotalPrice();
+
+			//update quantity on html
+			target.previousSibling.previousSibling.innerHTML = '$' + item.cartPrice;
+
+			//reset promo price if boolean is true
+			if(promotion.allApplied == true) {
+				promotion.discountAll();
+			}
+
+			//if the quantity = 0 then remove from cart and run function to make product buttons visible
+			if(item.quantity == 0) {
+				target.parentNode.parentNode.parentNode.removeChild(target.parentNode.parentNode);
+				cart.productButtonsVisible(target);
+
+				//remove from cart object
+				delete cart.cartItems[title];
+
+				//remove from titleReference array
+				var pos = cart.titleReference.indexOf(title);
+				cart.titleReference.splice(pos, 1);
+			}
+
+			//if no items in the cart, hide the cart
+			if(this.cart.children.length == 0) {
+				//hide cart and checkout since there is no product in the cart
+				cart.cart.className = 'hide';
+				cart.checkOutContainer.className = 'hide';
+			}
+
+			
+		},
+
+		addItem: function(target) {
+
+			//get title
+			var title = target.parentNode.children[0].innerHTML;
+
+			//get cart object
+			var item = cart.cartItems[title];
+
+			//increase the quantity on the cart item object
+			item.quantity +=1;
+
+			//update cart item quantity html value
+			target.previousSibling.previousSibling.innerHTML = 'Quantity: ' +item.quantity;
+
+			// //update cart quantity html value
+			this.cartQuantity();
+
+			// //update price on cart item object
+			item.cartPrice = (item.quantity * item.price).toFixed(2);
+
+			//update price on checkout html
+			this.checkoutTotalPrice();
+
+			//reset promo price if boolean is true
+			if(promotion.allApplied == true) {
+				promotion.discountAll();
+			}
+
+			// //update quantity on html
+			target.previousSibling.previousSibling.previousSibling.innerHTML = '$' + item.cartPrice;
+
+		},
+
+		productButtonsVisible: function(target) {
+
+			var title = target.parentNode.children[0].innerHTML;
+
+			var item = cart.cartItems[title];
+			//make buttons and quantity visible on product again
+			item.buttonControlRef.className = "";
+			//reset quanitity to 1
+			item.buttonControlRef.children[2].innerHTML = 1;
+
+		},
+
+		cartQuantity: function() {
+
+			var count = 0;
+
+			//loop through titleReference array to get total count of cart items
+			for(var i = 0; i < this.titleReference.length; i++) {
+				count += this.cartItems[this.titleReference[i]].quantity;
+			}
+
+			//update cart quantity total
+			this.cartNumber.innerHTML = count;
+		},
+
+		checkoutTotalPrice: function() {
+
+			var price = 0.00;
+
+			//loop through titleReference array to get total price of cart items
+			for(var i = 0; i < this.titleReference.length; i++) {
+				price += parseFloat(this.cartItems[this.titleReference[i]].cartPrice);
+			}
+
+			this.checkoutPrice.innerHTML = price;
+		}
+	}
+
+
+	var promotion = {
+
+		init:function() {
+			this.cacheDOM();
+			this.events();
+		},
+
+		cacheDOM: function() {
+			this.promo = document.getElementById('promo');
+			this.promoForm = document.getElementById('promo-form');
+			this.all = this.promoForm.elements['promo-input'];
+		},
+
+		events: function () {
+
+			this.promoForm.addEventListener('submit', function(e) {
+
+				e.preventDefault();
+
+				//apply ALL promo if its not already been applied
+				if(promotion.all.value.toLowerCase() == 'all' && promotion.allApplied == false) {
+					promotion.discountAll();
+				}
+			})
+		},
+
+		All: .05,
+		One: .10,
+		allApplied: false,
+		oneApplied: false,
+
+		discountAll: function() {
+			//get current total and apply discount
+			var currentPrice = parseFloat(cart.checkoutPrice.innerHTML);
+			var discount = parseFloat(cart.checkoutPrice.innerHTML) * this.All;
+			var price = parseFloat(currentPrice - discount).toFixed(2);
+			//set allApplied to true
+			cart.checkoutPrice.innerHTML = price;
+
+			//set allApplied to true
+			this.allApplied = true;
+
+		},
+
+		discountOne: function() {
+
+		}
+	}
+
+
+
+
+
+	// initialize obejcts
+	products.init();
+	cart.init();
+	promotion.init();
+
 
 
 })(window);
